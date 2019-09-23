@@ -4,7 +4,7 @@
 	<head>
 		<title>Struts 2 and Hibernate Integration Example</title>
 		<style>
-			.button-update {background-color: #008CBA;color: white;}
+		.button-update {background-color: #008CBA;color: white;}
 		</style>
 	</head>
 	<body>

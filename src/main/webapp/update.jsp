@@ -12,7 +12,7 @@
 				<b>Email:        </b><input type="text" name="empEmail" value='<s:property value="empEmail"/>'>
 				<b>Department:   </b><input type="text" name="empDept" value='<s:property value="empDept"/>'>
 				<b>Salary:       </b><input type="text" name="empSalary" value='<s:property value="empSalary"/>'>
-				<button name="submitType" value="update" type="submit">Update</button>
+					<button name="submitType" value="update" type="submit">Update</button>
 			</pre>
 		</form>
 		<p><a href="<s:url action='listEmployee'/>">Return to employee listing and registration page</a></p>
