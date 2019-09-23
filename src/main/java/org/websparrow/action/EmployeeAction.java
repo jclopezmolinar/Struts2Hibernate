@@ -25,7 +25,6 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Object>
 		return SUCCESS;
 	}
 	
-
 	public Object getModel() {
 		return employee;
 	}
@@ -78,7 +77,6 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Object>
 			empList = null;
 			empList = session.createQuery("from Employee").list();
 		}
-
 		return "UPDATE";
 	}
 	
