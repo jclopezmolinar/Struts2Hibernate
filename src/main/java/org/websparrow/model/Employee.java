@@ -13,6 +13,7 @@ public class Employee implements Serializable{
 	
 	public Employee(){
 		//TODO Auto-generated constructor stub
+		
 	}
 	
 	public Employee(String empName, String empDept, String empSalary, String empEmail){

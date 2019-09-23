@@ -15,7 +15,8 @@ public class HibernateListener implements ServletContextListener{
 	public static final String KEY_NAME = cls.getName();
 	
 	public void contextDestroyed(ServletContextEvent arg) {
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub	
+		
 	}
 
 	public void contextInitialized(ServletContextEvent arg) {
