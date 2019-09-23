@@ -31,7 +31,7 @@
 					<tr>
 						<td><s:property value="empId"/>
 							<s:form action="deleteEmployee" method="POST">
-								<a onclick="return confirm('Are you sure?')" href="removeEmployee.action?empId=<s:property value="empId"/>">Delete</a>
+								<a onclick="return confirm('Are you sure you want to delete this entry?')" href="removeEmployee.action?empId=<s:property value="empId"/>">Delete</a>
 							</s:form>
 							</td>
 						<td><s:property value="empName"/></td>

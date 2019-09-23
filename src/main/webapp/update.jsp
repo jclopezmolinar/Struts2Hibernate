@@ -15,6 +15,6 @@
 					<button name="submitType" value="update" type="submit">Update</button>
 			</pre>
 		</form>
-		<p><a href="<s:url action='listEmployee'/>">Return to employee page</a></p>
+		<p><a href="<s:url action='listEmployee'/>">Return to employee listing and registration page</a></p>
 	</body>
 </html>
