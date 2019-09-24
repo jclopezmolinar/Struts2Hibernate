@@ -29,55 +29,46 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Object>
 		return employee;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public String addEmployee() throws Exception{
+		Session session = sessionActivities();
+		session.save(employee);
+		queryCreation(session);
+		return SUCCESS;
+	}
+	
+	public String fetchEmployee() throws Exception{
+		Session session = sessionActivities();
+		queryCreation(session);
+		return SUCCESS;
+	}
+	
+	public String deleteEmployee() throws Exception{
+		Session session = sessionActivities();
+		session.delete(employee);
+		queryCreation(session);
+		return SUCCESS;
+	}
+	
+	public String updateEmployee() throws Exception{
+		Session session = sessionActivities();
+		employee.setEmpName(employee.getEmpName());
+		session.update(employee);
+		queryCreation(session);
+		return "UPDATE";
+	}
+	
+	private Session sessionActivities() throws Exception{
 		SessionFactory sessionFactory = (SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
 		Session session = sessionFactory.openSession();
-		
 		session.beginTransaction();
-		session.save(employee);
+		return session;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void queryCreation(Session session) throws Exception{
 		session.getTransaction().commit();
 		empList = null;
 		empList = session.createQuery("from Employee").list();
-		return SUCCESS;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public String fetchEmployee() throws Exception{
-		SessionFactory sessionFactory = (SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
-		Session session = sessionFactory.openSession();
-		empList = session.createQuery("from Employee").list();
-		return SUCCESS;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public String deleteEmployee() throws Exception{
-		SessionFactory sessionFactory = (SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		session.delete(employee);
-		session.getTransaction().commit();
-		empList = session.createQuery("from Employee").list();
-		return SUCCESS;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public String updateEmployee() throws Exception{
-		SessionFactory sessionFactory = (SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		
-		if(submitType.equals("updatedata")){
-			empList = session.createQuery("from Employee").list();
-		}
-		else{
-			employee.setEmpName(employee.getEmpName());
-			session.update(employee);
-			session.getTransaction().commit();
-			empList = null;
-			empList = session.createQuery("from Employee").list();
-		}
-		return "UPDATE";
 	}
 	
 	public List<Employee> getEmpList(){
